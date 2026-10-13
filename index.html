@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mewarnai Topeng Panji Asmoro Bangun</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Fraunces:wght@700;800&amp;display=swap" rel="stylesheet">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- External Scripts -->
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+</head>
+<body class="w-full" style="background: rgb(255, 249, 236);">
+  <div class="page-shell w-full">
+    
+    <!-- Header Bagian Atas -->
+    <header class="max-w-7xl mx-auto px-5 pt-8 pb-5 sm:px-8">
+      <div class="canva-tag inline-block rounded-full px-4 py-1.5 mb-4" style="background: rgb(255, 223, 132);">
+        <span class="canva-text" style="color: rgb(112, 76, 8); font-weight: 800; font-size: 12px;">✦ LEMBAR KERJA KREATIF</span>
+      </div>
+      <h1 class="canva-text title max-w-3xl font-extrabold" style="color: rgb(32, 52, 71); font-size: 32px;">Ayo, Kenali Topeng Panji Asmoro Bangun!</h1>
+      <p class="canva-text mt-3 max-w-2xl" style="color: rgb(82, 101, 117); font-size: 17px;">Pilih warna favoritmu dan hidupkan gambar topeng dengan imajinasimu.</p>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="max-w-7xl mx-auto px-5 pb-12 sm:px-8">
+      <div class="layout flex items-start gap-7">
+        
+        <!-- Panel Lembar Kerja / Gambar -->
+        <section class="canva-panel flex-1 min-w-0 rounded-[28px] p-3 sm:p-6" style="background: rgb(255, 255, 255);">
+          <h2 class="canva-text font-bold mb-4" style="color: rgb(32, 52, 71); font-size: 24px;">Lembar kerjaku</h2>
+          <div id="worksheet" class="worksheet" tabindex="0" aria-label="Lembar kerja Topeng Panji. Pilih warna dan mode, lalu gunakan mouse atau sentuhan untuk mewarnai.">
+            <img id="sourceImage" class="canva-image" loading="lazy" src="topeng.jpeg" alt="Lembar kerja hitam putih Topeng Panji Asmoro Bangun">
+            <canvas id="paint" aria-hidden="true"></canvas>
+            <span id="sheetName" aria-hidden="true"></span>
+          </div>
+        </section>
+
+        <!-- Panel Alat Kontrol & Warna -->
+        <aside class="canva-panel tools w-[350px] shrink-0 rounded-[28px] p-5 sm:p-6" style="background: rgb(255, 255, 255);">
+          <h2 class="canva-text font-bold mb-5" style="color: rgb(32, 52, 71); font-size: 24px;">Kotak alat warna 🎨</h2>
+          
+          <label class="canva-text block font-bold mb-2" for="nameInput" style="color: rgb(32, 52, 71); font-size: 16px;">Namaku</label> 
+          <input id="nameInput" class="canva-input w-full rounded-xl border-2 border-slate-200 px-4 py-3 bg-white mb-6" type="text" maxlength="24" autocomplete="name" placeholder="Tulis namamu di sini" style="color: rgb(32, 52, 71); font-size: 16px;">
+          
+          <h3 class="canva-text font-bold mb-3" style="color: rgb(32, 52, 71); font-size: 19px;">Pilih warna</h3>
+          <div id="palette" class="flex flex-wrap gap-3 mb-5" role="group" aria-label="Pilihan warna">
+            <button type="button" class="swatch" style="background:#e84747" data-color="#e84747" aria-label="Merah" aria-pressed="true"></button> 
+            <button type="button" class="swatch" style="background:#f39b32" data-color="#f39b32" aria-label="Oranye" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#f9d84a" data-color="#f9d84a" aria-label="Kuning" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#58b879" data-color="#58b879" aria-label="Hijau" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#39a9db" data-color="#39a9db" aria-label="Biru" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#9770bb" data-color="#9770bb" aria-label="Ungu" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#b77951" data-color="#b77951" aria-label="Cokelat" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#efabbd" data-color="#efabbd" aria-label="Merah muda" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#f4d2a4" data-color="#f4d2a4" aria-label="Krem" aria-pressed="false"></button> 
+            <button type="button" class="swatch" style="background:#ffffff" data-color="#ffffff" aria-label="Putih" aria-pressed="false"></button>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6" role="group" aria-label="Alat mewarnai">
+            <button id="fillTool" class="canva-button tool border-2 border-slate-200 rounded-xl px-4 py-2 font-bold" type="button" aria-pressed="true" style="color: rgb(32, 52, 71); font-size: 16px;">Isi Bidang</button> 
+            <button id="brushTool" class="canva-button tool border-2 border-slate-200 rounded-xl px-4 py-2 font-bold" type="button" aria-pressed="false" style="color: rgb(32, 52, 71); font-size: 16px;">Kuas</button> 
+            <button id="eraserTool" class="canva-button tool border-2 border-slate-200 rounded-xl px-4 py-2 font-bold" type="button" aria-pressed="false" style="color: rgb(32, 52, 71); font-size: 16px;">Penghapus</button>
+          </div>
+
+          <label class="canva-text block font-bold mb-2" for="brushSize" style="color: rgb(32, 52, 71); font-size: 16px;">Ukuran kuas</label> 
+          <input id="brushSize" class="w-full accent-[#176aa3] mb-5" type="range" min="4" max="48" value="18">
+          
+          <div class="grid grid-cols-2 gap-2">
+            <button id="undo" class="canva-button rounded-xl border-2 border-slate-200 px-3 py-2.5 font-bold" type="button" style="color: rgb(32, 52, 71); font-size: 16px;">↶ Undo</button> 
+            <button id="redo" class="canva-button rounded-xl border-2 border-slate-200 px-3 py-2.5 font-bold" type="button" style="color: rgb(32, 52, 71); font-size: 16px;">↷ Redo</button> 
+            <button id="reset" class="canva-button rounded-xl border-2 border-slate-200 px-3 py-2.5 font-bold" type="button" style="color: rgb(32, 52, 71); font-size: 16px;">Reset warna</button> 
+            <button id="download" class="canva-button rounded-xl px-3 py-2.5 font-bold" type="button" style="background: rgb(23, 106, 163); color: rgb(255, 255, 255); font-size: 16px;">↓ Unduh PNG</button>
+          </div>
+
+          <div id="resetConfirm" class="hidden mt-3 rounded-xl bg-amber-50 p-3">
+            <p class="canva-text mb-2" style="color: rgb(88, 68, 23); font-size: 16px;">Hapus semua warna? Nama tidak akan terhapus.</p>
+            <div class="flex gap-2">
+              <button id="confirmReset" class="canva-button rounded-lg px-3 py-2 font-bold" type="button" style="background: rgb(232, 71, 71); color: rgb(255, 255, 255); font-size: 16px;">Ya, hapus</button> 
+              <button id="cancelReset" class="canva-button rounded-lg px-3 py-2 font-bold" type="button" style="background: rgb(255, 255, 255); color: rgb(32, 52, 71); font-size: 16px;">Batal</button>
+            </div>
+          </div>
+
+          <p id="status" class="status mt-4 text-sm font-semibold text-[#176aa3]" role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+
+      <!-- Instruksi Bawah -->
+      <section class="canva-panel mt-6 rounded-[24px] p-5 sm:p-6" style="background: rgb(223, 243, 250);">
+        <h2 class="canva-text font-bold mb-2" style="color: rgb(32, 52, 71); font-size: 24px;">Cara mewarnai ✨</h2>
+        <p class="canva-text leading-relaxed" style="color: rgb(52, 79, 96); font-size: 16px; line-height: 1.6;">Pilih warna, lalu ketuk bagian putih gambar dengan Isi Bidang. Pilih Kuas dan geser jari atau mouse untuk mewarnai bebas; atur ukurannya dengan penggeser. Pilih Penghapus untuk menghapus warna. Gunakan Undo atau Redo jika perlu, lalu tekan Unduh PNG untuk menyimpan hasil. Nama dan warna juga tersimpan otomatis di perangkat ini.</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- JavaScript External File -->
+  <script src="script.js"></script>
+</body>
+</html>

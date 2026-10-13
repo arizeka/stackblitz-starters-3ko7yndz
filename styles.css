@@ -1,0 +1,117 @@
+:root { 
+  --ink: #203447; 
+  --blue: #176aa3; 
+  --cream: #fff9ec; 
+}
+
+* { 
+  box-sizing: border-box; 
+}
+
+body { 
+  margin: 0; 
+  font-family: "DM Sans", sans-serif; 
+  color: var(--ink); 
+}
+
+button, input { 
+  font: inherit; 
+}
+
+button:focus-visible, input:focus-visible, .worksheet:focus-visible { 
+  outline: 3px solid #0875ba; 
+  outline-offset: 3px; 
+}
+
+.page-shell { 
+  width: 100%; 
+  min-height: 100%; 
+  background-image: radial-gradient(circle at 10% 15%, #ffe6a7 0, transparent 25%), radial-gradient(circle at 90% 10%, #cceefa 0, transparent 25%); 
+}
+
+.title { 
+  font-family: Fraunces, serif; 
+  line-height: 1.12; 
+}
+
+.worksheet { 
+  position: relative; 
+  width: 100%; 
+  max-width: 550px; 
+  margin: auto; 
+  background: #fff; 
+  overflow: hidden; 
+  border-radius: 12px; 
+  box-shadow: 0 18px 50px #35455c25; 
+  touch-action: none; 
+}
+
+.worksheet img { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  user-select: none; 
+  pointer-events: none; 
+}
+
+#paint { 
+  position: absolute; 
+  inset: 0; 
+  width: 100%; 
+  height: 100%; 
+  mix-blend-mode: multiply; 
+  touch-action: none; 
+  cursor: crosshair; 
+}
+
+#sheetName { 
+  position: absolute; 
+  left: 66%; 
+  top: 6.35%; 
+  width: 29%; 
+  height: 3.4%; 
+  overflow: hidden; 
+  white-space: nowrap; 
+  color: #1c2730; 
+  font-size: clamp(9px, 2vw, 17px); 
+  font-weight: 700; 
+  line-height: 1.3; 
+  pointer-events: none; 
+}
+
+.swatch { 
+  width: 39px; 
+  height: 39px; 
+  border-radius: 12px; 
+  border: 2px solid #fff; 
+  box-shadow: 0 0 0 1px #c9d4d6; 
+  transition: transform .16s, box-shadow .16s; 
+}
+
+.swatch:hover { 
+  transform: translateY(-3px); 
+}
+
+.swatch[aria-pressed="true"] { 
+  box-shadow: 0 0 0 3px #173d5b; 
+  transform: translateY(-2px); 
+}
+
+.tool[aria-pressed="true"] { 
+  background: #176aa3; 
+  color: #fff; 
+  border-color: #176aa3; 
+}
+
+.status { 
+  min-height: 1.5em; 
+}
+
+@media(max-width: 900px) { 
+  .layout { 
+    flex-direction: column; 
+  } 
+  .tools { 
+    width: 100%; 
+  } 
+}
